@@ -4,7 +4,7 @@ import { TouchableHighlight, View, Text, StyleSheet, Image } from "react-native"
 import { cameraIcon, galleryIcon, folderIcon, settingsIcon } from "assets"
 
 class Footer extends React.Component<{}, {}> {
-  onPress = (e) => {
+  onPress = (e: Event) => {
     console.log('onPress')
     console.log(e)
   }
