@@ -1,6 +1,6 @@
 // @flow
 import React from "react"
-import { TouchableHighlight, View, Text, StyleSheet, Image } from "react-native"
+import { TouchableHighlight, View, StyleSheet, Image } from "react-native"
 import { cameraIcon, galleryIcon, folderIcon, settingsIcon } from "assets"
 
 class Footer extends React.Component<{}, {}> {
