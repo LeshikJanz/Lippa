@@ -6,13 +6,7 @@
   "env": {
     "development": {
       "plugins": [
-        "transform-react-jsx-source",
-        "module-resolver", {
-          "extensions": [".js"],
-          "alias": {
-            "components": "./src/components"
-          }
-        }
+        "transform-react-jsx-source"
       ]
     }
   }
