@@ -5,6 +5,7 @@ import { DEFAULT_INPUT_TEXT } from "./constants"
 import { global } from "utils/global"
 import { runSeoAnalysis } from "api/advegoApi"
 import { START_QUERY_SELECTOR, END_QUERY_SELECTOR } from "./constants";
+const querySelectorAll = require('query-selector');
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -36,6 +37,8 @@ class InputPage extends React.Component {
   }
 
   render() {
+    console.log("querySelectorAll")
+    console.log(querySelectorAll)
     return (
       <View style={styles.container}>
         {
