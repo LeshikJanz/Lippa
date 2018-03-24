@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#3b4142",
     height: '7%',
-    width: '100%'
+    width: '100%',
+    minHeight: 60
   },
   menuItem: {
     width: '25%',

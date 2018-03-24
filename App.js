@@ -5,7 +5,11 @@ import Footer from "components/footer/Footer"
 import InputPage from "modules/inputPage/InputPage"
 import { Font } from 'expo'
 
-export default class App extends React.Component<null, null> {
+type State = {
+  fontLoaded: boolean,
+}
+
+export default class App extends React.Component<{}, State> {
   state = {
     fontLoaded: false,
   }
@@ -18,6 +22,7 @@ export default class App extends React.Component<null, null> {
     })
 
     this.setState({ fontLoaded: true })
+    global.locale = "ru"
   }
 
   render() {
@@ -38,6 +43,7 @@ export default class App extends React.Component<null, null> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    height: "100%",
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'space-between',
