@@ -14,6 +14,7 @@ npm-debug.log
 .idea
 .vscode
 .awcache
+*.log
 
 build.tar.gz
 
