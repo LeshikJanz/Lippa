@@ -2,17 +2,33 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native'
 import Footer from "components/footer/Footer"
+import InputPage from "modules/inputPage/InputPage"
+import { Font } from 'expo'
 
 export default class App extends React.Component<null, null> {
+  state = {
+    fontLoaded: false,
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      'Lato-Bold': require('./src/assets/fonts/Lato/Lato-Bold.ttf'),
+      'Lato-Italic': require('./src/assets/fonts/Lato/Lato-Italic.ttf'),
+      'Lato': require('./src/assets/fonts/Lato/Lato-Regular.ttf'),
+    })
+
+    this.setState({ fontLoaded: true })
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <View>
-          <Text>Привет Настя!!!</Text>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
-        </View>
+        {
+          this.state.fontLoaded &&
+          <View>
+            <InputPage />
+          </View>
+        }
         <Footer />
       </View>
     );
@@ -26,5 +42,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginTop: '5%'
+  },
+  lato: {
+    fontFamily: 'Lato-Bold'
   }
 });

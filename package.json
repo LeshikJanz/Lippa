@@ -21,6 +21,11 @@
   "jest": {
     "preset": "jest-expo"
   },
+  "rnpm": {
+    "assets": [
+      "./src/assets/fonts/"
+    ]
+  },
   "dependencies": {
     "expo": "^25.0.0",
     "react": "16.2.0",
