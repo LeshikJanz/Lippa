@@ -1,6 +1,15 @@
 // @flow
 import React from "react"
-import { TextInput, Text, View, StyleSheet, Button, TouchableHighlight, ScrollView, WebView } from "react-native"
+import {
+  TextInput,
+  Text,
+  View,
+  StyleSheet,
+  Keyboard,
+  TouchableHighlight,
+  ScrollView,
+  WebView
+} from "react-native"
 import { DEFAULT_INPUT_TEXT } from "./constants"
 import { global } from "utils/global"
 import { runSeoAnalysis } from "api/advegoApi"
@@ -21,7 +30,7 @@ class InputPage extends React.Component {
   handleChange = (text) =>
     this.setState({ text })
 
-  handleSeoAnalys = () =>
+  handleSeoAnalysis = () =>
     runSeoAnalysis("ru", this.state.text)
       .then(res => res.text())
       .then(result =>
@@ -39,7 +48,7 @@ class InputPage extends React.Component {
         {
           !this.state.content &&
           <View>
-            <Text style={styles.label}>
+            <Text onPress={Keyboard.dismiss} style={styles.label}>
               Enter your text right here
             </Text>
             <TextInput
@@ -55,19 +64,21 @@ class InputPage extends React.Component {
         <TouchableHighlight
           name="seo analysis"
           style={styles.button}
-          disabled={this.state.content}
-          onPress={this.handleSeoAnalys}
+          disabled={!!this.state.content}
+          onPress={this.handleSeoAnalysis}
         >
           <Text style={styles.buttonText}>Seo analysis</Text>
         </TouchableHighlight>
         {
-          this.state.content &&
-          <WebView
-            style={styles.result}
-            contentInset={{ top: 0, left: 400, bottom: 0, right: 0 }}
-            source={{ html: this.state.content }}
-            onError={this.handleWebViewError}
-          />
+          !!this.state.content &&
+          <View style={styles.resultView}>
+            <WebView
+              style={styles.result}
+              contentInset={{ top: 0, left: 500, bottom: 0, right: 0 }}
+              source={{ html: this.state.content }}
+              onError={this.handleWebViewError}
+            />
+          </View>
         }
       </View>
     )
@@ -77,7 +88,7 @@ class InputPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height: "90%",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
   },
   label: {
     fontFamily: "Lato-Bold",
@@ -87,19 +98,15 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    height: "80%",
+    height: "70%",
     borderBottomColor: '#000000',
     borderBottomWidth: 1
   },
-  result: {
-    width: 1100,
-    height: 1100
+  resultView: {
+    height: "100%",
   },
-  contentInset: {
-    top: 0,
-    left: 100,
-    bottom: 0,
-    right: 0
+  result: {
+    width: 1350
   },
   button: {
     width: "100%",
