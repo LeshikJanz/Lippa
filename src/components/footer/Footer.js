@@ -1,7 +1,7 @@
 // @flow
 import React from "react"
 import { TouchableHighlight, View, StyleSheet, Image } from "react-native"
-import { cameraIcon, galleryIcon, folderIcon, settingsIcon } from "assets"
+import { penIcon, cameraIcon, galleryIcon, settingsIcon } from "assets"
 
 class Footer extends React.Component<{}, {}> {
   onPress = (e: Event) => {
@@ -19,7 +19,7 @@ class Footer extends React.Component<{}, {}> {
         >
           <Image
             style={styles.image}
-            source={cameraIcon}
+            source={penIcon}
           />
         </TouchableHighlight>
         <TouchableHighlight
@@ -29,7 +29,7 @@ class Footer extends React.Component<{}, {}> {
         >
           <Image
             style={styles.image}
-            source={galleryIcon}
+            source={cameraIcon}
           />
         </TouchableHighlight>
         <TouchableHighlight
@@ -38,7 +38,7 @@ class Footer extends React.Component<{}, {}> {
         >
           <Image
             style={styles.image}
-            source={folderIcon}
+            source={galleryIcon}
           />
         </TouchableHighlight>
         <TouchableHighlight

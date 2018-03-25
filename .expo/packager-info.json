@@ -1,8 +1,8 @@
 {
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 12170,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPort": 19003,
+  "packagerPid": 3137,
+  "expoServerNgrokUrl": "https://43-4z9.leshikjanz.lippa.exp.direct",
+  "packagerNgrokUrl": "https://packager.43-4z9.leshikjanz.lippa.exp.direct",
+  "ngrokPid": 3153
 }
