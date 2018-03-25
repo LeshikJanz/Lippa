@@ -5,7 +5,6 @@ import { DEFAULT_INPUT_TEXT } from "./constants"
 import { global } from "utils/global"
 import { runSeoAnalysis } from "api/advegoApi"
 import { START_QUERY_SELECTOR, END_QUERY_SELECTOR } from "./constants";
-const querySelectorAll = require('query-selector');
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -16,9 +15,7 @@ class InputPage extends React.Component {
   getParsedData = (res) => {
     const startPosition = res.indexOf(START_QUERY_SELECTOR)
     const endPosition = res.indexOf(END_QUERY_SELECTOR)
-    const html = res.substring(startPosition, endPosition)
-
-    return html
+    return res.substring(startPosition, endPosition)
   }
 
   handleChange = (text) =>
@@ -37,8 +34,6 @@ class InputPage extends React.Component {
   }
 
   render() {
-    console.log("querySelectorAll")
-    console.log(querySelectorAll)
     return (
       <View style={styles.container}>
         {
@@ -59,10 +54,11 @@ class InputPage extends React.Component {
         }
         <TouchableHighlight
           name="seo analysis"
-          style={styles.menuItem}
+          style={styles.button}
+          disabled={this.state.content}
           onPress={this.handleSeoAnalys}
         >
-          <Text>Seo analysis</Text>
+          <Text style={styles.buttonText}>Seo analysis</Text>
         </TouchableHighlight>
         {
           this.state.content &&
@@ -104,6 +100,19 @@ const styles = StyleSheet.create({
     left: 100,
     bottom: 0,
     right: 0
+  },
+  button: {
+    width: "100%",
+    height: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 28,
+    backgroundColor: "#ff5000"
+  },
+  buttonText: {
+    fontSize: 24,
+    fontFamily: "Lato-Bold",
+    color: "#fff"
   }
 })
 
